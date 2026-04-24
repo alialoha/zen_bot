@@ -29,15 +29,15 @@
 
 1. Copy `.env.example` to `.env` and set one or more LLM API keys.
 2. Install dependencies:
-   - `npm install`
+  - `npm install`
 3. Build all packages:
-   - `npm run build`
+  - `npm run build`
 4. Start API:
-   - `npm run dev`
+  - `npm run dev`
 5. Run evaluation:
-   - `npm run eval`
+  - `npm run eval`
 6. Run full quality gate (same checks as CI):
-   - `npm run check`
+  - `npm run check`
 
 ## Channel Setup
 
@@ -61,4 +61,3 @@
 - Built a multi-channel AI assistant (Telegram + WhatsApp) with a unified webhook router and fallback LLM provider abstraction.
 - Implemented retrieval-grounded poetic responses with citation checks to reduce hallucinations and improve answer trust.
 - Added reliability controls (idempotency, retry policy, structured logs) and an evaluation suite to track quality over time.
-

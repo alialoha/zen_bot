@@ -1,10 +1,25 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import express from "express";
+import { resolve } from "node:path";
 import { parseTelegramUpdate } from "../../../packages/channel-telegram/src/index.js";
 import { parseWhatsAppPayload } from "../../../packages/channel-whatsapp/src/index.js";
 import { createEngine, FallbackLLMEngine, type ChatMessage, type LLMProvider } from "../../../packages/llm-adapter/src/index.js";
 import { formatCitation, retrievePoems, type RetrievalResult } from "../../../packages/retrieval/src/index.js";
 import { classifyIntent, policyByIntent, type IntentCategory, type ResponsePolicy } from "./intent-policy.js";
+
+function loadEnv(): void {
+  const candidatePaths = [
+    resolve(process.cwd(), ".env"),
+    resolve(process.cwd(), "../../.env"),
+    resolve(process.cwd(), "../../../.env")
+  ];
+
+  for (const path of candidatePaths) {
+    dotenv.config({ path, override: false });
+  }
+}
+
+loadEnv();
 
 type NormalizedMessage = {
   channel: "telegram" | "whatsapp";

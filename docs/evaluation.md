@@ -42,4 +42,3 @@ Scale target: 150-300 prompts after MVP.
 - `npm run eval`
 
 The script prints aggregate and category-level averages for quick tracking.
-
