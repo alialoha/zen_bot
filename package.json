@@ -1,0 +1,34 @@
+{
+  "name": "zen_bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zen Bot monorepo for Telegram and WhatsApp poet assistant",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run --workspace @zen/channel-telegram build && npm run --workspace @zen/channel-whatsapp build && npm run --workspace @zen/retrieval build && npm run --workspace @zen/llm-adapter build && npm run --workspace @zen/evaluation build && npm run --workspace @zen/bot-api build",
+    "dev": "npm run --workspace @zen/bot-api dev",
+    "start": "npm run --workspace @zen/bot-api start",
+    "eval": "npm run --workspace @zen/evaluation eval",
+    "typecheck": "npm run --workspace @zen/channel-telegram typecheck && npm run --workspace @zen/channel-whatsapp typecheck && npm run --workspace @zen/retrieval typecheck && npm run --workspace @zen/llm-adapter typecheck && npm run --workspace @zen/evaluation typecheck && npm run --workspace @zen/bot-api typecheck"
+  },
+  "keywords": [
+    "telegram",
+    "whatsapp",
+    "llm",
+    "chatbot"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

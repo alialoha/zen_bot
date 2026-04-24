@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rumi-guest-house",
+    "poet": "Rumi",
+    "work": "The Guest House",
+    "language": "en",
+    "text": "This being human is a guest house. Every morning a new arrival. A joy, a depression, a meanness, some momentary awareness comes as an unexpected visitor."
+  },
+  {
+    "id": "hafez-friend",
+    "poet": "Hafiz",
+    "work": "Translated ghazal excerpt",
+    "language": "en",
+    "text": "I wish I could show you when you are lonely or in darkness the astonishing light of your own being."
+  },
+  {
+    "id": "khayyam-rubai",
+    "poet": "Khayyam",
+    "work": "Rubaiyat (FitzGerald translation excerpt)",
+    "language": "en",
+    "text": "The moving finger writes; and, having writ, moves on: nor all your piety nor wit shall lure it back to cancel half a line."
+  }
+]
