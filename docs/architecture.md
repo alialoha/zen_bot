@@ -39,8 +39,6 @@ router --> logger
 logger --> evalStore
 ```
 
-
-
 ## Key Decisions
 
 - **Channel unification:** channel-specific payload parsing is isolated in package modules; the app processes one normalized message type.

@@ -15,7 +15,7 @@
 
 ## Pull request checklist
 
-- Build and typecheck pass.
-- Evaluation script passes.
-- `.env.example` reflects any new environment variables.
-- README/docs are updated for user-facing or operational changes.
+- [ ] Build and typecheck pass.
+- [ ] Evaluation script passes.
+- [ ] `.env.example` reflects any new environment variables.
+- [ ] README/docs are updated for user-facing or operational changes.

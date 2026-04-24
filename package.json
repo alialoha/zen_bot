@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run --workspace @zen/channel-telegram build && npm run --workspace @zen/channel-whatsapp build && npm run --workspace @zen/retrieval build && npm run --workspace @zen/llm-adapter build && npm run --workspace @zen/evaluation build && npm run --workspace @zen/bot-api build",
     "dev": "npm run --workspace @zen/bot-api dev",
-    "start": "npm run --workspace @zen/bot-api start",
+    "start": "node dist/apps/bot-api/src/index.js",
     "eval": "npm run --workspace @zen/evaluation eval",
     "typecheck": "npm run --workspace @zen/channel-telegram typecheck && npm run --workspace @zen/channel-whatsapp typecheck && npm run --workspace @zen/retrieval typecheck && npm run --workspace @zen/llm-adapter typecheck && npm run --workspace @zen/evaluation typecheck && npm run --workspace @zen/bot-api typecheck",
     "check": "npm run typecheck && npm run build && npm run eval"

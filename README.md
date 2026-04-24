@@ -24,6 +24,8 @@
 - `docs/demo-video-script.md`: portfolio demo narration
 - `docs/case-study.md`: hiring-manager-ready project write-up
 - `docs/design-rationale.md`: interview-grade architecture rationale
+- `docs/operations-runbook.md`: deployment and webhook operations checklist
+- `docs/whatsapp-sandbox-onboarding.md`: reusable "how to join" message for users
 
 ## Quick Start
 
@@ -43,11 +45,17 @@
 
 - **Telegram**
   - Set `TELEGRAM_BOT_TOKEN` in `.env`.
-  - Configure webhook to `POST /webhooks/telegram` on your public tunnel URL.
+  - Configure webhook to `POST /webhooks/telegram` on your public HTTPS URL.
 - **WhatsApp (Twilio Sandbox)**
   - Set `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, and `TWILIO_WHATSAPP_FROM`.
-  - In Twilio Sandbox, set "When a message comes in" to `POST /webhooks/whatsapp` on your public tunnel URL.
+  - In Twilio Sandbox, set "When a message comes in" to `POST /webhooks/whatsapp` on your public HTTPS URL.
   - Use `GET /debug/twilio` to confirm sender format and latest send status/error.
+
+## Deployment Targets
+
+- **Local development:** `npm run dev` with `.env` in repo root.
+- **Stable domain via Cloudflare Tunnel:** map `bot.<domain>` to `http://localhost:3000`.
+- **Production hosting:** deploy on Cloud Run and point Telegram/Twilio webhooks to the Cloud Run or custom domain URL.
 
 ## Webhook Endpoints
 
