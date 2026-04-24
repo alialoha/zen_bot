@@ -3,6 +3,7 @@ export type NormalizedMessage = {
   messageId: string;
   userId: string;
   text: string;
+  chatId?: string;
   raw: unknown;
 };
 
@@ -12,13 +13,14 @@ type TelegramUpdate = {
     message_id?: number;
     text?: string;
     from?: { id?: number | string };
+    chat?: { id?: number | string };
   };
 };
 
 export function parseTelegramUpdate(payload: unknown): NormalizedMessage | null {
   const update = payload as TelegramUpdate;
   const message = update.message;
-  if (!message?.text || !message?.message_id || !message.from?.id) {
+  if (!message?.text || !message?.message_id || !message.from?.id || !message.chat?.id) {
     return null;
   }
 
@@ -27,6 +29,7 @@ export function parseTelegramUpdate(payload: unknown): NormalizedMessage | null 
     messageId: String(message.message_id),
     userId: String(message.from.id),
     text: message.text,
+    chatId: String(message.chat.id),
     raw: payload
   };
 }

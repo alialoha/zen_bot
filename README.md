@@ -23,6 +23,7 @@
 - `docs/eval-baseline.md`: current baseline scores and gaps
 - `docs/demo-video-script.md`: portfolio demo narration
 - `docs/case-study.md`: hiring-manager-ready project write-up
+- `docs/design-rationale.md`: interview-grade architecture rationale
 
 ## Quick Start
 
@@ -35,12 +36,25 @@
    - `npm run dev`
 5. Run evaluation:
    - `npm run eval`
+6. Run full quality gate (same checks as CI):
+   - `npm run check`
+
+## Channel Setup
+
+- **Telegram**
+  - Set `TELEGRAM_BOT_TOKEN` in `.env`.
+  - Configure webhook to `POST /webhooks/telegram` on your public tunnel URL.
+- **WhatsApp (Twilio Sandbox)**
+  - Set `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, and `TWILIO_WHATSAPP_FROM`.
+  - In Twilio Sandbox, set "When a message comes in" to `POST /webhooks/whatsapp` on your public tunnel URL.
+  - Use `GET /debug/twilio` to confirm sender format and latest send status/error.
 
 ## Webhook Endpoints
 
 - `POST /webhooks/telegram`
 - `POST /webhooks/whatsapp`
 - `GET /health`
+- `GET /debug/twilio`
 
 ## Suggested CV Bullets
 

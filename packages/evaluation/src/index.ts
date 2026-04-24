@@ -73,6 +73,19 @@ function runEvaluation() {
   for (const [category, totals] of byCategory.entries()) {
     console.log(`- ${category}: ${average(totals).toFixed(2)} / 5.00 (${totals.length} cases)`);
   }
+
+  const byIntent = new Map<string, number[]>();
+  for (const result of results) {
+    const key = result.testCase.intentCategory;
+    const list = byIntent.get(key) ?? [];
+    list.push(result.total);
+    byIntent.set(key, list);
+  }
+
+  console.log("Intent category averages:");
+  for (const [intent, totals] of byIntent.entries()) {
+    console.log(`- ${intent}: ${average(totals).toFixed(2)} / 5.00 (${totals.length} cases)`);
+  }
 }
 
 runEvaluation();

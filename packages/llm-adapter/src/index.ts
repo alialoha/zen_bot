@@ -41,6 +41,8 @@ class OpenAICompatibleEngine implements LLMEngine {
       max_tokens: request.maxTokens ?? 350
     };
 
+    console.log(`[llm] provider=${this.config.provider} model=${this.config.model} sending request`);
+
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {
@@ -52,13 +54,18 @@ class OpenAICompatibleEngine implements LLMEngine {
 
     if (!response.ok) {
       const errorText = await response.text();
+      console.error(
+        `[llm] provider=${this.config.provider} status=${response.status} error=${errorText.slice(0, 300)}`
+      );
       throw new Error(`${this.config.provider} request failed: ${response.status} ${errorText}`);
     }
 
     const data = (await response.json()) as {
       choices?: Array<{ message?: { content?: string } }>;
     };
-    return data.choices?.[0]?.message?.content?.trim() ?? "";
+    const content = data.choices?.[0]?.message?.content?.trim() ?? "";
+    console.log(`[llm] provider=${this.config.provider} success chars=${content.length}`);
+    return content;
   }
 
   private resolveEndpoint(): string {

@@ -12,7 +12,8 @@
     "dev": "npm run --workspace @zen/bot-api dev",
     "start": "npm run --workspace @zen/bot-api start",
     "eval": "npm run --workspace @zen/evaluation eval",
-    "typecheck": "npm run --workspace @zen/channel-telegram typecheck && npm run --workspace @zen/channel-whatsapp typecheck && npm run --workspace @zen/retrieval typecheck && npm run --workspace @zen/llm-adapter typecheck && npm run --workspace @zen/evaluation typecheck && npm run --workspace @zen/bot-api typecheck"
+    "typecheck": "npm run --workspace @zen/channel-telegram typecheck && npm run --workspace @zen/channel-whatsapp typecheck && npm run --workspace @zen/retrieval typecheck && npm run --workspace @zen/llm-adapter typecheck && npm run --workspace @zen/evaluation typecheck && npm run --workspace @zen/bot-api typecheck",
+    "check": "npm run typecheck && npm run build && npm run eval"
   },
   "keywords": [
     "telegram",
@@ -29,6 +30,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1"
   }
 }
